@@ -13,6 +13,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "@firebase/app",
+              "@firebase/firestore",
+              "@firebase/database",
+              "@firebase/component",
+              "@firebase/util"
+           
+          ],
+
             "outputPath": "dist/misterybox",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -117,8 +128,16 @@
               "devServerTarget": "misterybox:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "misterybox"
+    }
+  },
+  "defaultProject": "misterybox",
+  "cli": {
+    "analytics": false
+  }
 }
