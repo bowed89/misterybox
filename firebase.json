@@ -1,35 +1,10 @@
 {
-  "hosting": [
-    {
-    "target": "misterybox",
-    "public": "dist/misterybox",
+  "hosting": {
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
-  {
-    "target": "mistery-admin",
-    "public": "dist/mistery-admin",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
-
-]
 }

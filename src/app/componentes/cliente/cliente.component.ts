@@ -3,6 +3,9 @@ import {Router} from "@angular/router"
 
 import swal from 'sweetalert2'; 
 
+declare var jQuery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
@@ -11,6 +14,7 @@ import swal from 'sweetalert2';
 export class ClienteComponent implements OnInit {
 
   clientenombre: string;
+  clienteapellido: string;
   clienteCarnet: number;
   clienteTelefono: number;
   clienteCorreo: string;
@@ -23,6 +27,7 @@ export class ClienteComponent implements OnInit {
   constructor(
     
     private router: Router
+
   ) { }
 
   ngOnInit(): void {
@@ -38,15 +43,16 @@ export class ClienteComponent implements OnInit {
       const dateNow = Date.now()
       
       guardar['nombre'] = this.clientenombre;
+      guardar['apellido'] = this.clienteapellido;
       guardar['carnet'] = this.clienteCarnet;
       guardar['telefono'] = this.clienteTelefono;
       guardar['correo'] = this.clienteCorreo;
-  
       guardar['factura'] = this.clienteFactura;
       guardar['monto'] = this.clienteMonto;
       guardar['ciudad'] = this.clienteCiudad;
       guardar['fecha'] = dateNow;
 
+      /* LocalStorage  */
       localStorage.setItem('cliente', JSON.stringify(guardar));
 
       swal.fire({

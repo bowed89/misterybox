@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientesService } from '../../servicios/clientes.service';
+
 import swal from 'sweetalert2'; 
+
 @Component({
   selector: 'app-premio',
   templateUrl: './premio.component.html',
@@ -16,14 +18,15 @@ export class PremioComponent implements OnInit {
 
   ngOnInit(): void {
 
+    /* Premios aleatorios */
     const premios = ['Llavero', 'Boligrafo', 'Gafas', 'Billetera', 'Mochila'];
     const random = Math.floor(Math.random() * premios.length);
 
+    /* LocalStorage */
     let datos: any; 
     datos =  JSON.parse(localStorage.getItem('cliente'));
 
    
-
     let guardar = {};
 
     /* Fecha */
@@ -34,10 +37,10 @@ export class PremioComponent implements OnInit {
     var date = dd + '/' + mm + '/' + yyyy;
     
     guardar['nombre'] = datos.nombre;
+    guardar['apellido'] = datos.apellido;
     guardar['carnet'] = datos.carnet;
     guardar['telefono'] = datos.telefono;
     guardar['correo'] = datos.correo;
-
     guardar['factura'] = datos.factura;
     guardar['monto'] = datos.monto;
     guardar['ciudad'] = datos.ciudad;
